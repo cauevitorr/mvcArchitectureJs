@@ -66,7 +66,7 @@ export const postLivros = (request, response) => {
 
 export const getLivrosId =  (request, response) => {
  const { id } = request.params;
- const sql = /*sql*/ `SELECT * FROM livros WHERE livros_id = "${id}`;
+ const sql = /*sql*/ `SELECT * FROM livros WHERE livros_id = "${id}"`;
  conn.query(sql, (err, data) => {
    if (err) {
      console.error(err);
@@ -112,7 +112,7 @@ export const putLivros = (request, response) => {
    return;
  }
 
- const sql = /*sql*/ ` SELECT * FROM livros WHERE livros_id = "${id}`;
+ const sql = /*sql*/ ` SELECT * FROM livros WHERE livros_id = "${id}"`;
  conn.query(sql, (err, data) => {
    if (err) {
      console.error(err);
