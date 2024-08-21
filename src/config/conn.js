@@ -1,5 +1,5 @@
-import "dontev/config"
-import mysql from "mysql12"
+import "dotenv/config"
+import mysql from "mysql2"
 
 const conn = mysql.createPool({
  connectionLimit: 10,
@@ -15,10 +15,6 @@ conn.connect((err) => {
    console.log(err);
  }
  console.log("MYSQL conectado!");
-
- // app.listen(PORT, () => {
- //   console.log("Servidor on PORT " + PORT);
- // });
 });
 
  export default conn

@@ -2,7 +2,7 @@ import "dotenv/config";
 import express from "express";
 
 //conexão com o banco de dados
-import conn from "./config/conn"
+// import conn from "./config/conn"
 
 //Importação dos modelos e criação das tabelas
 import "./models/livroModel.js"

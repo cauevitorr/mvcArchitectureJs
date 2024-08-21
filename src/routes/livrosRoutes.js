@@ -7,7 +7,7 @@ import {
  getLivrosId, 
  putLivros, 
  deleteLivros 
-} from "../controllers/livrosController";
+} from "../controllers/livrosController.js";
 
 const router = Router()
 
