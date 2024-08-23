@@ -17,5 +17,5 @@ conn.query(tabelaFuncionario,(err, result,field)=>{
   console.error("Erro ao criar tabela" + err.stack)
   return
  }
- console.log("Tabela [FUNCINARIOS] criada com sucesso")
+ console.log("Tabela [funcionarios] criada com sucesso")
 })

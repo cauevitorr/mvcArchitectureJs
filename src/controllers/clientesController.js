@@ -159,3 +159,35 @@ export const deleteClientes = (request, response) => {
   }
  });
 };
+
+export const loginCliente = (request, response)=>{
+ if (request.body.email && request.body.nome) {
+  let email = request.body.email
+  let nome = request.body.nome
+  const check = /*sql*/`SELECT cliente_id, nome, email FROM clientes WHERE email = ? AND nome = ?`
+  const dataSelect = [email, nome]
+
+  conn.query(checkSql, dataSelect, (err, results)=>{
+   if (err) {
+    console.log(err)
+    response.status(500).json({message:" Erro ao bsucar dados"})
+    return
+   }
+   if (results.length > 0) {
+    const user = results[0]
+
+    const token = JWT.sign(
+     {id: user.cliente_id, email: user.email},
+     process.env.JWT_SECRET_KEY,
+     {expireIn: '10'}
+    )
+
+    response.status(200).json({id: user.cliente_id, email: user.email, token})
+   }else{
+    response.status(404).json({message: "Usuário náo encontrado"})
+   }
+  })
+ }else{
+  response.status(400).json({message: "Email e nome são obrigatórios"})
+ }
+}

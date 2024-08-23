@@ -1,4 +1,5 @@
 import { Router } from  "express"
+import { Auth } from "../middlewares/auth.js"
 
 //Import controllers
 import {
@@ -11,7 +12,7 @@ import {
 
 const router = Router()
 
-router.get("/", getClientes)
+router.get("/", Auth.private, getClientes)
 router.post("/post", postClientes)
 router.get("/:id", getClientesId)
 router.put("/put/:id", putClientes)

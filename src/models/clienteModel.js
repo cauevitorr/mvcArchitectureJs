@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS clientes(
  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )`
 
-conn.query(tabelaFuncionario,(err, result,field)=>{
+conn.query(tabelaClientes,(err, result,field)=>{
  if(err){
   console.error("Erro ao criar tabela" + err.stack)
   return

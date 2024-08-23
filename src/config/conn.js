@@ -10,7 +10,7 @@ const conn = mysql.createPool({
  port: process.env.MYSQL_PORT,
 })
 
-conn.connect((err) => {
+conn.getConnection((err) => {
  if (err) {
    console.log(err);
  }
